@@ -10,7 +10,7 @@
 <body>
     
     <section class="container">
-        <h1>Ticket Tracker for Demo</h1>
+        <h1>Ticket Tracker</h1>
         <section class="jumbotron">
             <h3>Add New Issue:</h3>  
             <form id="issueInputForm">  
@@ -28,10 +28,21 @@
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
-                    </select>
-                    
+                    </select>                    
                 </div>
+                <div class="form-group">
+                    <label for="issueAssignedToInput">Assigned To...</label>
+                    <input type="text" class="form-control" id="issueAssignedToInput" placeholder="Assign To...">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
             </form>            
+        </section>
+        <section class="row">
+            <div class="col-lg-12">
+                <div id="issuesList">
+                    <!-- This will be populated by JS -->
+                </div>
+            </div>
         </section>
     </section>
     
