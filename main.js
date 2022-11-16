@@ -17,7 +17,7 @@ const fetchIssues = () => {
 
         let statusColor = status == 'Closed' ? 'label-success' : 'label-info';
 
-        issuesList.innerHTML += 
+        // issuesList.innerHTML += 
 
     }
 }
@@ -49,4 +49,6 @@ const saveIssue = e => {
         localStorage.setItem('issues', JSON.stringify(issues));
     }
     document.getElementById('issueInputForm').reset();
+    fetchIssues();
+    e.preventDefault();
 }
