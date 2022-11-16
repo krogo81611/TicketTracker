@@ -1,7 +1,7 @@
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
 
-const fetchIssues = () => {
+function fetchIssues() {
     let issues = JSON.parse(localStorage.getItem('issues'));
     let issuesList = document.getElementById('issuesList');
 
@@ -18,16 +18,21 @@ const fetchIssues = () => {
         let statusColor = status == 'Closed' ? 'label-success' : 'label-info';
 
         issuesList.innerHTML += 
-        '<div class="well">' + 
-        '<h6>Issue ID:' + id + '</h6>' + 
-        '<p><span class="label ' + statusColor + '">' + status + '</span></p>' +
+        '<div class="well">' +
+        '<h6>Issue ID:' + id + '</h6>' +
+        '<p><span class= "label ' + statusColor + ' ">' + status + '</span></p>' +
         '<h3>' + subject + '</h3>' +
-        '<p>'+ description + '<p>' 
+        '<p>' + description + '</p>' +
+        '<p><span class="glyphicon glyphicon-time"></span> ' + severity + ' ' + 
+        '<span class="glyphicon glyphicon-user"></span> ' + assignedTo + '</p>' +
+        '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\'' + id + '\')">Close</a> ' +
+        '<a href="#" class="btn btn-danger" onclick="deleteIssue(\'' + id + '\')">Delete</a> ' 
+        + '</div>'
 
     }
 }
 
-const saveIssue = e => {
+function saveIssue() {
     let issueId = chance.guid();
     let issueSubject = document.getElementById('issueSubjInput').value;
     let issueDescription = document.getElementById('issueDescInput').value;
