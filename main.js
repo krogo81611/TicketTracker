@@ -38,4 +38,5 @@ const saveIssue = e => {
         assignedTo : issueAssignedTo,
         status : issueStatus
     }
+    
 }
